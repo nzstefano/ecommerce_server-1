@@ -1,0 +1,32 @@
+{
+  "name": "ecommerce_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --detectOpenHandles --forceExit --runInBand --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nzstefano/ecommerce_server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nzstefano/ecommerce_server/issues"
+  },
+  "homepage": "https://github.com/nzstefano/ecommerce_server#readme",
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "supertest": "^6.0.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.4.2",
+    "sequelize": "^6.3.5"
+  }
+}
