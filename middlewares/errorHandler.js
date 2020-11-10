@@ -21,6 +21,14 @@ async function errorHandler(err, req, res, next) {
     case "SequelizeValidationError":
       status = 400;
       message = err.errors[0].message;
+      switch (message) {
+        case "Product.name cannot be null":
+          message = `Please input the product name`;
+          break;
+        case "Product.image_url cannot be null":
+          message = `Please input the product image link`;
+          break;
+      }
       break;
     default:
       status = 500;

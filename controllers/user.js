@@ -8,14 +8,24 @@ class UserController {
       // console.log(`==== Registering ====`);
       const email = req.body.email;
       const password = req.body.password;
-      const payload = {
+      let payload = {
         email,
         password,
       };
+
+      if (req.body.role) {
+        payload = {
+          email,
+          password,
+          role: req.body.role,
+        };
+      }
+
       const user = await User.create(payload);
       return res.status(201).json({
         id: user.id,
         email: user.email,
+        role: user.role,
       });
     } catch (err) {
       next(err);
@@ -38,11 +48,12 @@ class UserController {
       } else if (!comparePassword(password, user.password)) {
         throw { message: "Invalid email/password", status: 400 };
       } else {
+        const access_token = signToken({
+          id: user.id,
+          email: user.email,
+        });
         res.status(200).json({
-          access_token: signToken({
-            id: user.id,
-            email: user.email,
-          }),
+          access_token: access_token,
         });
       }
     } catch (err) {

@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Cheetos",
+        "image_url": "https://images-na.ssl-images-amazon.com/images/I/91dl7O-wxhL._SL1500_.jpg",
+        "price": 5000,
+        "stock": 100
+    },
+    {
+        "name": "Lays",
+        "image_url": "https://ecs7.tokopedia.net/img/cache/700/product-1/2020/6/19/8812651/8812651_f36807a7-f4be-43cf-ab9c-ae8ceb7394bf_893_893.jpg",
+        "price": 6000,
+        "stock": 90
+    },
+    {
+        "name": "Kusuka",
+        "image_url": "https://ecs7.tokopedia.net/img/cache/700/product-1/2019/12/6/batch-upload/batch-upload_b39f9eca-6301-4556-8f02-75729bf9907f.jpg",
+        "price": 6000,
+        "stock": 90
+    }
+]

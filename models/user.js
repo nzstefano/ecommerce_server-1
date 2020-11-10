@@ -41,11 +41,18 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      role: {
+        type: DataTypes.STRING,
+        defaultValue: "Customer",
+      },
     },
     {
       hooks: {
         beforeCreate(user) {
           user.password = hashPassword(user.password);
+          if (!user.role) {
+            user.role = "Customer";
+          }
         },
       },
       sequelize,
