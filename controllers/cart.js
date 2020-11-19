@@ -37,7 +37,7 @@ class CartController {
         where: payload
       })
       if (cartCheck) {
-        if ((cartCheck.qty + qty) >= product.stock) {
+        if ((cartCheck.qty + qty) > product.stock) {
           throw { message: 'Out of stock', status: 400}
         } else {
           console.log('==== Update Cart ====')
@@ -55,12 +55,16 @@ class CartController {
           })
         }
       } else {
-        payload.qty = qty
-        console.log('==== Add Cart ====')
-        await Cart.create(payload);
-        return res.status(201).json({
-          product,
-        });
+        if (qty > product.stock) {
+          throw { message: 'Out of stock', status: 400}
+        } else {
+          payload.qty = qty
+          console.log('==== Add Cart ====')
+          await Cart.create(payload);
+          return res.status(201).json({
+            product,
+          });
+        } 
       }
     } catch (err) {
       next(err);
