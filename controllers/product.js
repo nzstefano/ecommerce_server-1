@@ -3,10 +3,10 @@ const { Product } = require("../models");
 class ProductController {
   static async showProduct(req, res, next) {
     try {
-      // console.log(`==== Registering ====`);
-      const product = await Product.findAll();
+      console.log(`==== Fetching Products ====`);
+      const products = await Product.findAll();
       return res.status(200).json({
-        product,
+        products,
       });
     } catch (err) {
       next(err);

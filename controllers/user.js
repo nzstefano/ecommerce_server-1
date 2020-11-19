@@ -5,7 +5,7 @@ const { signToken } = require("../helpers/jwt");
 class UserController {
   static async register(req, res, next) {
     try {
-      // console.log(`==== Registering ====`);
+      console.log(`==== Registering ====`);
       const email = req.body.email;
       const password = req.body.password;
       let payload = {
@@ -34,7 +34,7 @@ class UserController {
 
   static async login(req, res, next) {
     try {
-      // console.log(`==== Loging in ====`);
+      console.log(`==== Loging In Admin ====`);
       const email = req.body.email;
       const password = req.body.password;
 
@@ -46,6 +46,39 @@ class UserController {
       if (!user) {
         throw { message: "Invalid email/password", status: 400 };
       } else if (!comparePassword(password, user.password)) {
+        throw { message: "Invalid email/password", status: 400 };
+      } else if (user.role !== 'Admin') {
+        throw { message: "Invalid email/password", status: 400 };
+      } else {
+        const access_token = signToken({
+          id: user.id,
+          email: user.email,
+        });
+        res.status(200).json({
+          access_token: access_token,
+        });
+      }
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  static async loginCustomer (req, res, next) {
+    try {
+      console.log(`==== Loging In Customer ====`);
+      const email = req.body.email;
+      const password = req.body.password;
+
+      const user = await User.findOne({
+        where: {
+          email: email,
+        },
+      });
+      if (!user) {
+        throw { message: "Invalid email/password", status: 400 };
+      } else if (!comparePassword(password, user.password)) {
+        throw { message: "Invalid email/password", status: 400 };
+      } else if (user.role !== 'Customer') {
         throw { message: "Invalid email/password", status: 400 };
       } else {
         const access_token = signToken({

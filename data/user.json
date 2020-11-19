@@ -6,7 +6,7 @@
     },
     {
         "email": "sample@mail.com",
-        "password": "test1234",
-        "role": "Costumer"
+        "password": "admin123",
+        "role": "Customer"
     }
 ]

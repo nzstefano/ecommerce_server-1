@@ -16,5 +16,23 @@
         "image_url": "https://ecs7.tokopedia.net/img/cache/700/product-1/2019/12/6/batch-upload/batch-upload_b39f9eca-6301-4556-8f02-75729bf9907f.jpg",
         "price": 6000,
         "stock": 90
+    },
+    {
+        "name": "Kusuka yang lain",
+        "image_url": "https://ecs7.tokopedia.net/img/cache/700/product-1/2019/12/6/batch-upload/batch-upload_b39f9eca-6301-4556-8f02-75729bf9907f.jpg",
+        "price": 6000,
+        "stock": 90
+    },
+    {
+        "name": "Kusuka yang lain lagi",
+        "image_url": "https://ecs7.tokopedia.net/img/cache/700/product-1/2019/12/6/batch-upload/batch-upload_b39f9eca-6301-4556-8f02-75729bf9907f.jpg",
+        "price": 6000,
+        "stock": 90
+    },
+    {
+        "name": "Kusuka yang baru",
+        "image_url": "https://ecs7.tokopedia.net/img/cache/700/product-1/2019/12/6/batch-upload/batch-upload_b39f9eca-6301-4556-8f02-75729bf9907f.jpg",
+        "price": 6000,
+        "stock": 90
     }
 ]
