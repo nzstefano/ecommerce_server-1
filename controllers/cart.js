@@ -25,6 +25,11 @@ class CartController {
         ProductId,
         UserId: req.User.id,
       };
+
+      if (qty <= 0) {
+        throw { message: 'Please input correct quantity', status: 400}
+      }
+
       console.log('==== Check Product ====')
       const product = await Product.findByPk(ProductId)
 
