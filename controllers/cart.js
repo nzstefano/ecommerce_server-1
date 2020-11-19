@@ -81,6 +81,10 @@ class CartController {
       const { ProductId, qty } = req.body;
       const payload = { qty };
 
+      if (qty <= 0) {
+        throw { message: 'Please input correct quantity', status: 400}
+      }
+      
       const data = await Product.findByPk(ProductId)
 
       if (payload.qty > data.stock) {
